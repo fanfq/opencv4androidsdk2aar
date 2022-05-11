@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             tv.setText("opencv 初始化失败 !!!");
             tv.setTextColor(Color.RED);
         }else {
-            tv.setText("opencv 初始化成功 !!! ver."+OpenCVLoader.OPENCV_VERSION);
+            tv.setText("opencv 初始化成功 !!! ver."+OpenCVLoader.OPENCV_VERSION +",jnicall:"+ stringFromJNI());
             Log.e("TAG", "opencv 初始化成功 !! ver."+OpenCVLoader.OPENCV_VERSION);
             tv.setTextColor(Color.BLUE);
         }
