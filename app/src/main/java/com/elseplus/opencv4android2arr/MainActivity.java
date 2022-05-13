@@ -11,10 +11,13 @@ import org.opencv.android.OpenCVLoader;
 
 public class MainActivity extends AppCompatActivity {
 
+
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
     }
+
+    final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
         TextView tv = findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
+
+        Log.e(TAG,"JNI REST:"+stringFromJNI());
+        Log.e(TAG,"JNI REST:"+getSignKeyFromJNI("abc"));
 
         boolean success = OpenCVLoader.initDebug();
         if (!success) {
@@ -42,4 +48,6 @@ public class MainActivity extends AppCompatActivity {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
+
+    public native String getSignKeyFromJNI(String origin);
 }
